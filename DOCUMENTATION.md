@@ -35,7 +35,7 @@ You can also use your hosting site url.
 - POST Request Response
 {
 "Person": {
-"_id": "6502152763bcef1970ba0a28",
+"_id": "**",
 "name": "Satoru Goju",
 "__v": 0
 }
@@ -43,12 +43,13 @@ You can also use your hosting site url.
 
 ## GET request
 GET /api/:user_id
-
+in this example user_id = 6505214dc9cece34a2d64608
 - GET Request Response
 {
 "person": {
-"_id": "6502152763bcef1970ba0a28",
-"name": "Satoru Gojo",
+"_id": "6505214dc9cece34a2d64608",
+"name": "Chinwe",
+"track": "Frontend"
 "__v": 0
 }
 }

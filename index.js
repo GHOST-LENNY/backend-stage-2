@@ -42,15 +42,15 @@ const personSchema = new mongoose.Schema({
 //Define Person Model
 const Person = mongoose.model("Person", personSchema);
 
-const David = new Person({ name: "David", track: "Design" });
-console.log(David);
-// David.save();
 
 // CRUD Endpoints
 app.post("/api", async (req, res) => {
   try {
-    const person = new Person(req.body);
-    if (!person) {
+    const person = new Person({
+      name: req.body.name,
+    track: req.body.track
+  });
+    if (!person.name) {
       res.status(404).json({ error: "name string parameter required" });
     } else {
       await person.save();
@@ -75,9 +75,11 @@ app.get("/api/:user_id", async (req, res) => {
 
 app.put("/api/:user_id", async (req, res) => {
   try {
+    const {user_id} = req.params;
+    const {name} = req.body;
     const updatedPerson = await Person.findByIdAndUpdate(
-      req.params.user_id,
-      req.body,
+      user_id,
+      {name},
       { new: true }
     );
     if (!updatedPerson) {
@@ -91,7 +93,8 @@ app.put("/api/:user_id", async (req, res) => {
 
 app.delete("/api/:user_id", async (req, res) => {
   try {
-    const person = await Person.findByIdAndDelete(req.params.user_id);
+    const {user_id} = req.params;
+    const person = await Person.findByIdAndDelete(user_id);
     if (!person) {
       return res.status(404).json({ error: "Person not found" });
     }
