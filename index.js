@@ -11,20 +11,27 @@ app.use(bodyParser.json());
 
 // Use environment variables for MongoDB connection
 const username = process.env.MONGODB_USERNAME;
-// console.log('MongoDB username:', username);
 const password = process.env.MONGODB_PASSWORD;
 
+
+// Construct the MongoDB connection URI using the environment variables
+const uri = `mongodb+srv://${username}:${password}@stage2.lo2tefe.mongodb.net/person`
 
 // MongoDB Connection
 main().catch(err => console.log(err));
 
 async function main() {
-  await mongoose.connect(`mongodb+srv://${username}:${password}@stage2.lo2tefe.mongodb.net/person`, {
+  await mongoose.connect(uri, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   });
 
 }
+
+db.on('error', console.error.bind(console, 'MongoDB connection error:'));
+db.once('open', () => {
+  console.log('Connected to MongoDB');
+});
 
 
 //Define Person Schema
@@ -39,20 +46,6 @@ const Person = mongoose.model("Person", personSchema);
 const David = new Person({ name: "David", track: "Design" });
 console.log(David);
 // David.save();
-
-// const Femi = new Person({ name: "Femi", track: "Backend" });
-// console.log(Femi);
-// Femi.save();
-
-// const Chinwe = new Person({ name: "Chinwe", track: "Frontend" });
-// console.log(Chinwe);
-// Chinwe.save();
-
-const Habibi = new Person({ name: "Habibi", track: "Devops" });
-console.log(Habibi);
-// Habibi.save();
-
-
 
 
 // CRUD Endpoints
