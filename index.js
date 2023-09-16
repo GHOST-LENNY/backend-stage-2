@@ -74,7 +74,7 @@ app.post("/api", async (req, res) => {
 
 app.get("/api/:user_id", async (req, res) => {
   try {
-    const person = await Person.findById(_id : req.params.user_id);
+    const person = await Person.findById({_id : req.params.user_id});
     if (!person) {
       return res.status(404).json({ error: "Person not found" });
     }
@@ -105,7 +105,7 @@ app.put("/api/:user_id", async (req, res) => {
 app.delete("/api/:user_id", async (req, res) => {
   try {
     const {user_id} = req.params;
-    const person = await Person.findByIdAndDelete(user_id);
+    const person = await Person.findByIdAndDelete({_id: user_id});
     if (!person) {
       return res.status(404).json({ error: "Person not found" });
     }
