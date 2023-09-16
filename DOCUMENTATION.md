@@ -1,4 +1,4 @@
-# A RESTful CRUD API built with Node, MongoDB, and Express.
+# A RESTful CRUD API built with Node, MongoDB Atlas and Express.
 
 ## ❯ Getting Started
 
