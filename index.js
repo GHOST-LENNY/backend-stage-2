@@ -6,7 +6,7 @@ const app = express();
 
 // Middleware
 app.use(express.json());
-app.use(express.urlencoded({extended: false})); //Parse URL-encoded bodies
+app.use(express.urlencoded({extended: true})); //Parse URL-encoded bodies
 
 // Use environment variables for MongoDB connection
 const username = process.env.MONGODB_USERNAME;
