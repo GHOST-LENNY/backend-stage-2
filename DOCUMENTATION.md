@@ -32,6 +32,8 @@ You can also use your hosting site url.
 }
 
 - POST Request Response
+
+
 {
 "newPerson": {
 "_id": "**", //generated id
@@ -47,6 +49,8 @@ You can also use your hosting site url.
 GET /api/:user_id
 in this example we'll use user_id = 6505214dc9cece34a2d64608
 - GET Request Response
+
+
 {
 "person": {
 "_id": "6505214dc9cece34a2d64608",
@@ -60,6 +64,8 @@ in this example we'll use user_id = 6505214dc9cece34a2d64608
 PUT /api/:user_id
 
 - PUT sample Request Response
+
+
 {
 "updatedPerson": {
 "_id": "64ff1ea91539022f0c4d1d98",
