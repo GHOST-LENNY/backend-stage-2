@@ -1,12 +1,12 @@
 require("dotenv").config();
 const express = require("express");
 const mongoose = require("mongoose");
-const bodyParser = require("body-parser");
 
 const app = express();
 
 // Middleware
-app.use(bodyParser.json());
+app.use(express.json());
+app.use(express.urlencoded({extended: false})); //Parse URL-encoded bodies
 
 // Use environment variables for MongoDB connection
 const username = process.env.MONGODB_USERNAME;
@@ -46,15 +46,15 @@ const Person = mongoose.model("Person", personSchema);
 // CRUD Endpoints
 app.post("/api", async (req, res) => {
   try {
-    const person = new Person({
+    const newPerson = new Person({
       name: req.body.name,
     track: req.body.track
   });
-    if (!person.name) {
+    if (!newPerson.name) {
       res.status(404).json({ error: "name string parameter required" });
     } else {
-      await person.save();
-      res.status(201).json(person);
+      await newPerson.save();
+      res.status(201).json(newPerson);
     }
   } catch (error) {
     res.status(500).json({ error: "Could not create person" });
