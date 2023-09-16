@@ -62,6 +62,15 @@ app.post("/api", async (req, res) => {
   }
 });
 
+  app.get('/api', async (req, res) => {
+  try {
+    const people = await Person.find();
+    res.json(people);
+  } catch (error) {
+    res.status(500).json({ error: 'Could not fetch people' });
+  }
+});
+
 app.get("/api/:user_id", async (req, res) => {
   try {
     const person = await Person.findById(req.params.user_id);
