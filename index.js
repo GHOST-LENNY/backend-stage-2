@@ -62,6 +62,8 @@ app.post("/api", async (req, res) => {
   }
 });
 
+
+//Base route for all documents in database
   app.get('/api', async (req, res) => {
   try {
     const people = await Person.find();
