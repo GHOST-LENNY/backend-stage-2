@@ -9,8 +9,7 @@ Install Node.js in your computer.
 
 ### Step 2: Create your new Project
 
-Clone or download this project into your own project 
-
+Fork or download this project.
 
 
 Then setup your application environment.
@@ -34,16 +33,19 @@ You can also use your hosting site url.
 
 - POST Request Response
 {
-"Person": {
-"_id": "**",
-"name": "Satoru Goju",
+"newPerson": {
+"_id": "**", //generated id
+"name": "Satoru Gojo",
 "__v": 0
 }
 }
 
+- on error
+{"error":"name string parameter required"}
+
 ## GET request
 GET /api/:user_id
-in this example user_id = 6505214dc9cece34a2d64608
+in this example we'll use user_id = 6505214dc9cece34a2d64608
 - GET Request Response
 {
 "person": {
@@ -57,11 +59,11 @@ in this example user_id = 6505214dc9cece34a2d64608
 ## PUT request
 PUT /api/:user_id
 
-- PUT Request Response
+- PUT sample Request Response
 {
 "updatedPerson": {
 "_id": "64ff1ea91539022f0c4d1d98",
-"name": "Satoru Goj",
+"name": "Satoru Gooi",
 track: "Backend"
 "__v": 0
 }
