@@ -74,7 +74,7 @@ app.post("/api", async (req, res) => {
 
 app.get("/api/:user_id", async (req, res) => {
   try {
-    const person = await Person.findById(req.params.user_id);
+    const person = await Person.findById(_id : req.params.user_id);
     if (!person) {
       return res.status(404).json({ error: "Person not found" });
     }
