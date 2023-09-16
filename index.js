@@ -5,7 +5,6 @@ const mongoose = require("mongoose");
 const app = express();
 
 // Middleware
-app.use(express.text());
 app.use(express.json());
 app.use(express.urlencoded({extended: true})); //Parse URL-encoded bodies
 
