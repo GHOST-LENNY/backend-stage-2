@@ -51,7 +51,7 @@ in this example we'll use user_id = 6505214dc9cece34a2d64608
 - GET Request Response
 
 
-`{
+{
 "person": {
 
 "_id": "6505214dc9cece34a2d64608",
@@ -62,7 +62,7 @@ in this example we'll use user_id = 6505214dc9cece34a2d64608
 
 "__v": 0
 }
-}`
+}
 
 ## PUT request
 PUT /api/:user_id
