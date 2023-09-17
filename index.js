@@ -26,7 +26,7 @@ async function main() {
 }
 
 
-//validation for render
+//Validation for render
 const db = mongoose.connection;
 db.on("error", console.error.bind(console, "MongoDB connection error:"));
 db.once("open", () => {
@@ -104,7 +104,7 @@ app.put("/api/:user_id", async (req, res) => {
 
 app.delete("/api/:user_id", async (req, res) => {
   try {
-    const person = await Person.findByIdAndDelete({req.params.user_id});
+    const person = await Person.findByIdAndDelete(req.params.user_id);
     if (!person) {
       return res.status(404).json({ error: "Person not found" });
     }
